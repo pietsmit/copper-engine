@@ -260,8 +260,8 @@ public class CassandraStorage implements Storage {
                 cw.id = wfId;
                 cw.ppoolId = row.getString("PPOOL_ID");
                 cw.prio = row.getInt("PRIO");
-                cw.creationTS = row.getDate("CREATION_TS");
-                cw.timeout = row.getDate("TIMEOUT");
+                cw.creationTS = row.getTimestamp("CREATION_TS");
+                cw.timeout = row.getTimestamp("TIMEOUT");
                 cw.waitMode = toWaitMode(row.getString("WAIT_MODE"));
                 cw.serializedWorkflow = new SerializedWorkflow();
                 cw.serializedWorkflow.setData(row.getString("DATA"));
@@ -368,7 +368,7 @@ public class CassandraStorage implements Storage {
         final WaitMode waitMode = toWaitMode(row.getString("WAIT_MODE"));
         final Map<String, String> responseMap = toResponseMap(row.getString("RESPONSE_MAP_JSON"));
         final ProcessingState state = ProcessingState.valueOf(row.getString("STATE"));
-        final Date timeout = row.getDate("TIMEOUT");
+        final Date timeout = row.getTimestamp("TIMEOUT");
         final boolean timeoutOccured = timeout != null && timeout.getTime() <= System.currentTimeMillis();
 
         if (state == ProcessingState.ERROR || state == ProcessingState.INVALID) {

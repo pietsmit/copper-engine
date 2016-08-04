@@ -311,7 +311,7 @@ project(':projects:copper-cassandra:cassandra-storage') {
         compile "org.slf4j:slf4j-api:$slf4jVersion"
 	compile 'commons-io:commons-io:2.4'
 	compile 'com.google.guava:guava:18.0'
-	compile 'com.datastax.cassandra:cassandra-driver-core:2.1.9'
+	compile 'com.datastax.cassandra:cassandra-driver-core:3.0.1'
 	compile 'commons-lang:commons-lang:2.6'
        	compile 'com.fasterxml.jackson.core:jackson-core:2.6.3'
        	compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
